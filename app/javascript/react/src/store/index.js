@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk';
-import greetingReducer from '../reducers/index';
+import rootReducer from '../reducers/index';
 
 const store = configureStore({
   reducer: {
-    greeting: greetingReducer
+    greeting: rootReducer
   },
   middleware: [thunk]
 });

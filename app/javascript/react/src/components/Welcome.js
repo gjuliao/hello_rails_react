@@ -10,9 +10,10 @@ const Welcome = ({ greeting, fetchGreeting }) => {
 
   return (
     <div>
-      {<p>Loading...</p>}
-      {<p>{greeting.message}</p>}
-      {<p>error</p>}
+        <h1>hello world</h1>
+      {greeting.loading && <p>Loading...</p>}
+      {!greeting.loading && !greeting.error && <p>{greeting.message}</p>}
+      {greeting.error && <p>Error: {greeting.error.message}</p>}
     </div>
   )
 }
