@@ -1,7 +1,10 @@
 import { configureStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers/index';
+import greetingReducer from '../reducers/index';
 
-const store = configureStore(rootReducer, applyMiddleware(thunk));
+const store = configureStore(
+  greetingReducer,
+  applyMiddleware(thunk)
+);
 
 export default store;

@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchGreeting } from '../actions/index';
 
-function Welcome() {
+const Welcome = ({ greeting, fetchGreeting }) => {
+
+    useEffect(() => {
+        fetchGreeting();
+      }, []);
+
   return (
-    <div>Welcome</div>
+    <div>
+      {loading && <p>Loading...</p>}
+      {greeting && <p>{greeting.message}</p>}
+      {error && <p>{error}</p>}
+    </div>
   )
 }
 
-export default Welcome
+const mapStateToProps = (state) => {
+    return {
+      greeting: state.greeting,
+    };
+  };
+  
+  export default connect(mapStateToProps, { fetchGreeting })(Welcome);
