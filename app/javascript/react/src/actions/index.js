@@ -20,7 +20,7 @@ export const fetchGreeting = () => {
     return async (dispatch) => {
       dispatch(fetchGreetingRequest());
       try {
-        const response = await fetch('http://127.0.0.1:3000/api/greetings/random');
+        const response = await fetch('http://localhost:3000/api/greetings/random');
         const data = await response.json();
         dispatch(fetchGreetingSuccess(data.message));
       } catch (error) {
